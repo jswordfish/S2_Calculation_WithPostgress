@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    
+    <link type="text/css" rel="stylesheet" href="css/twenty20.css" />
+    <title>"#{rulesManager.title}"</title>
+    <style type="text/css">
+        .col-xs-updated {        
+            width: 92% !important;
+        }
+	
+	
+	.choices label {
+	align:right;
+	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin-left: 40px;
+	font-weight: normal;
+	padding-right: 2px;
+	}
+	
+	.choices td {
+	    text-align: right;
+	}
+	.choices td input {
+	    float: right;
+	}
+	
+    </style>
+</h:head>
+
+
+
+<h:body>  
+ 
+ <div class="container">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-brand" style="bitBold">
+		        
+		<h:outputText id="displayTitle" value="#{rulesManager.title}" />
+	    
+	    </div>
+        </div>
+	<b><hr/> </b>
+       
+		<h:form id="ruleForm" class="form-horizontal"  >  
+
+			<fieldset>
+			
+	<div class='row'>
+		
+	
+		
+		
+		
+        </div>
+    
+    <div class='row'>
+         
+        <div class='form-group'>
+               
+               
+			<h:outputLabel for="ruleXml-id"  styleClass="general" >Web Service URL</h:outputLabel>  
+			<h:inputTextarea id="ruleXml" value="#{rulesManager.webServiceUrl}" class="form-control"  pt:required="required" />
+        </div>
+     </div>
+     
+     <div class='row'>
+         
+        <div class='form-group'>
+               
+               
+			<h:outputLabel for="rule-id"  styleClass="general" >Rule Name</h:outputLabel>  
+			<h:inputTextarea id="rule" value="#{rulesManager.rule.ruleName}" class="form-control"  pt:required="required" />
+        </div>
+     </div>
+     
+     <div class='row'>
+         
+        <div class='form-group'>
+               
+               
+			<h:outputLabel for="ruleI-id"  styleClass="general" >Input Json</h:outputLabel>  
+			<h:inputTextarea id="ruleI" value="#{rulesManager.inputJson}" class="form-control" row = "10" col = "30"  pt:required="required" />
+        </div>
+     </div>
+     
+     <div class='row'>
+         
+        <div class='form-group'>
+               
+               
+			<h:outputLabel for="ruleO-id"  styleClass="general" >Output Json</h:outputLabel>  
+			<h:inputTextarea id="ruleO" value="#{rulesManager.outputJson}" class="form-control"  row = "10" col = "30" />
+        </div>
+     </div>
+     
+	<div class='row'>
+	
+		<div class='col-sm-5'>    
+		 	<p:commandButton id="hitWs" value="Hit Web Service" actionListener="#{rulesManager.hitWebservice}" class="btn btn-success" ajax="false" >
+				<f:ajax execute="@form" render="@none" />	
+				
+			</p:commandButton>  
+				 
+		</div>
+		
+		<div class='col-sm-15'>    
+		    	<h:commandLink  value="Go Back" action="#{rulesManager.reset()}" class="btn btn-primary" style="color:white" />   
+
+
+		</div>
+		
+		
+		
+        </div>
+	
+	
+    
+</fieldset>
+
+			
+		</h:form>	
+	     
+	<b><hr/> </b>
+</div>	
+
+</h:body>  
+</html>  

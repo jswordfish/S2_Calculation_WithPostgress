@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    
+    <link type="text/css" rel="stylesheet" href="css/twenty20.css" />
+    <title>JSF Bootstrap Example</title>
+    <style type="text/css">
+        .col-xs-updated {        
+            width: 92% !important;
+        }
+	
+	.choices label {
+	   text-align:left;
+	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: normal;
+	}
+	
+	
+    </style>
+</h:head>
+
+
+
+<h:body>  
+ 
+ <div class="container">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-brand" style="text-align: center;font-size:16px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;">Company Creation</div>
+        </div>
+	<b><hr/> </b>
+        <div class="row">
+            <div class="col-xs-12 col-xs-updated">
+		<h:form id="form" class="form-horizontal" enctype="multipart/form-data" >  
+
+
+
+			<div class="form-group">  
+				<h:outputLabel for="companyName" class="control-label col-sm-10" styleClass="general" >Company Name</h:outputLabel>  
+				<div class="col-sm-10">  
+					<h:inputText id="name-id" value="#{companiesManager.companyName}" class="form-control"   pt:required="required"
+					validatorMessage="Company name is required">  
+					<f:validateRequired />  
+					</h:inputText>  
+				</div>  
+			</div>  
+			<div class="form-group">  
+				<h:outputLabel for="registrationNo" class="control-label col-sm-10" styleClass="general">Registration Number</h:outputLabel>  
+					<div class="col-sm-10">  
+						<h:inputText id="registrationNo-id" value="#{companiesManager.companyRegistrationNumber}" class="form-control"  pt:required="required" 
+						validatorMessage="Registration No is required">  
+						
+						</h:inputText>  
+					</div>  
+			</div>  
+
+			<div class="form-group">  
+			<h:outputLabel for="logo" class="control-label col-sm-10" styleClass="general">Upload Company Logo</h:outputLabel>  
+				<div class="col-sm-10">  
+					<p:fileUpload mode="simple" value="#{companiesManager.uploadedFile}"  class="control-label col-sm-7" style="text-align:left;font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 12px;"/>
+					<p:commandButton value="Upload" action="#{companiesManager.upload}" ajax="false" class="control-label col-sm-2" styleClass="general">
+						
+					</p:commandButton>
+					
+				
+					<c:if test="${companiesManager.uploadedFile != null}">  
+						(File Attached - "${companiesManager.uploadedFile.fileName}")
+					</c:if>
+				
+				</div>  
+			</div>  
+
+			<div class="form-group">  
+				<h:outputLabel for="cons" class="control-label col-sm-10" styleClass="general">Type of Construction Work Undertaken</h:outputLabel>  
+					<div class="col-sm-10">  
+						<h:inputText id="cons-id" value="#{companiesManager.typeOConstrunctionWorkUndertaken}" class="form-control">  
+						
+						</h:inputText>  
+					</div>  
+			</div>
+
+			<div class="form-group">  
+				<h:outputLabel for="nop" class="control-label col-sm-10" styleClass="general">No of Projects Under Construction
+				</h:outputLabel>  
+					<div class="col-sm-10">  
+						<h:inputText id="nop-id" value="#{companiesManager.numberOfPRojectsUnderConstruction}" class="form-control" pt:type="number" p:title="Enter a number" pt:required="required">  
+							
+						</h:inputText>  
+					</div>  
+			</div>
+
+			<div class="form-group" >  
+				<h:outputLabel for="orgType" class="control-label col-sm-10" styleClass="general">Select Organization Type </h:outputLabel>  
+					<div class="col-sm-10">  
+						<h:selectOneRadio value="#{companiesManager.orgType}" validatorMessage="Org Type is required" pt:required="required" styleClass="choices">  
+							<f:selectItem itemValue="COMPANY_LIMITED_BY_SHARES" itemLabel="Company limited by Shares"  />  
+							<f:selectItem itemValue="CORPORATION" itemLabel="Corporation"  />
+							<f:selectItem itemValue="LIMITED_LIABILITY_PARTNERSHIP" itemLabel="Limited Liability Partnership"  />  
+						 
+						
+						</h:selectOneRadio>  
+					</div>  
+			</div>  
+
+			<div class="form-group">  
+
+				<div class="col-sm-10" >  
+					<div class="col-sm-6" style="align:center;">  
+					
+					<h:commandButton value="Save" action="#{companiesManager.addCompany()}" class="btn btn-success col-sm-7" style="width:100px;height:30px;font-size:12px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;"></h:commandButton>  
+					</div>  
+					
+					
+					<div class="col-sm-6" style="align:center;">  
+					<h:button value="Go Back"  outcome="bootstrapTabs"  style="width:100px;float:right;height:30px;font-size:12px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;"></h:button>  
+					</div>
+					
+				</div>  
+			</div> 
+		</h:form>	
+	     </div>
+	</div>
+	<b><hr/> </b>
+</div>	
+  
+</h:body>  
+</html>  

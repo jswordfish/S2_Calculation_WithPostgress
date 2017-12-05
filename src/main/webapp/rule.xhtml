@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    
+    <link type="text/css" rel="stylesheet" href="css/twenty20.css" />
+    <title>"#{rulesManager.title}"</title>
+    <style type="text/css">
+        .col-xs-updated {        
+            width: 92% !important;
+        }
+	
+	
+	.choices label {
+	align:right;
+	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin-left: 40px;
+	font-weight: normal;
+	padding-right: 2px;
+	}
+	
+	.choices td {
+	    text-align: right;
+	}
+	.choices td input {
+	    float: right;
+	}
+	
+    </style>
+</h:head>
+
+
+
+<h:body>  
+ 
+ <div class="container">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-brand" style="bitBold">
+		
+		<h:outputText id="displayTitle" value="#{rulesManager.title}" />
+	    
+	    </div>
+        </div>
+	<b><hr/> </b>
+       
+		<h:form id="ruleForm" class="form-horizontal"  >  
+
+			<fieldset>
+			
+	<div class='row'>
+		
+	
+		
+		
+		
+        </div>
+    
+    <div class='row'>
+         
+            <div class='form-group'>
+               
+               
+					
+		<h:inputTextarea id="ruleXml" value="#{rulesManager.ruleXml}" class="form-control" styleClass="ruleDialogText"  pt:required="required" />
+            </div>
+       
+
+     </div>
+     
+	<div class='row'>
+	
+		<div class='col-sm-5'>    
+		 	<p:commandButton id="saveProj" value="Save" actionListener="#{rulesManager.saveRule}" class="btn btn-success" ajax="false" style="width:100px;float:right;font-size:12px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;">
+				<f:ajax execute="@form" render="@none" />	
+				
+			</p:commandButton>  
+				 
+		</div>
+		
+		<div class='col-sm-15'>    
+		    	<h:button value="Go Back"  outcome="RulesAdminPanel"  style="width:100px;float:right;height:30px;font-size:12px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;"></h:button>  
+					
+		</div>
+		
+		
+		
+        </div>
+	
+	
+    
+</fieldset>
+
+			
+		</h:form>	
+	     
+	<b><hr/> </b>
+</div>	
+
+</h:body>  
+</html>  

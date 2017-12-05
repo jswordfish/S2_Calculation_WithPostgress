@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>BootsFaces Basic Page</title>
+    </h:head>
+    <h:body>
+        
+	   <b:tabView contentStyle="border-right: 1px solid #ddd;border-left: 1px solid #ddd;border-bottom: 1px solid #ddd;padding:10px">
+	     <b:tab title="JSF markup">
+			 <ui:include src="/index.xhtml">
+			 <ui:param name="dataModel" value="#{companiesManager}" />
+		      </ui:include>
+	     </b:tab>
+	     <b:tab title="second tab">
+		 <ui:include src="/projects.xhtml">
+			
+		      </ui:include>
+	     </b:tab>
+	    </b:tabView>
+	
+    </h:body>
+</html>

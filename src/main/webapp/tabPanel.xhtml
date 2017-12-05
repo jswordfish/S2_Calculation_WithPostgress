@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+      <h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    
+    <link type="text/css" rel="stylesheet" href="css/twenty20.css" />
+    <title>JSF Bootstrap Example</title>
+    <style type="text/css">
+        .col-xs-updated {        
+            width: 92% !important;
+        }
+	
+
+	
+	.rf-tab-lbl{
+	 font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	}
+	
+	.rf-tab-hdr.rf-tab-hdr-act
+	{
+	  background-image : none;
+	  background-color: lightblue;
+	}
+	
+
+    </style>
+</h:head>
+      
+<h:body>
+    <h:form id="myForm"> 
+	<rich:tabPanel id="myTabPanel" switchType="ajax" activeItem="#{tabtest.displayTab}" >
+	
+		  
+		   
+		  <rich:tab name="Companies" >
+		  	
+		      <ui:include src="/index.xhtml">
+			 <ui:param name="dataModel" value="#{companiesManager}" />
+		      </ui:include>
+		  </rich:tab>
+		  
+		   <rich:tab name="Dashboard">
+		     Under Construction
+		     
+		  </rich:tab>
+		  
+		  <rich:tab name="Projects" >
+		     <ui:include src="/projects.xhtml">
+			 <ui:param name="dataModel" value="#{projectsManager}" />
+		      </ui:include>
+		     
+		  </rich:tab>
+		  <rich:tab name="Requests" >
+		     Under Construction
+		     
+		  </rich:tab>
+		   <rich:tab name="Responses" >
+		     Under Construction
+		     
+		  </rich:tab>
+		   <rich:tab name="Rebates Management" >
+		     Under Construction
+		     
+		  </rich:tab>
+		  <rich:tab name="Meeting Schedules" >
+		     Under Construction
+		     
+		  </rich:tab>
+		  <rich:tab name="Notifications (2 New Messages)" >
+		     Under Construction
+		     
+		  </rich:tab>
+		  
+	</rich:tabPanel>
+</h:form> 
+</h:body>
+</ui:composition>

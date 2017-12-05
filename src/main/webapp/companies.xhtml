@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>DataTable tag Example</title>
+	    <link rel="stylesheet" href="css/form.css">
+</h:head>
+<h:body>
+	<h3>Company Details</h3>
+	<h:form >
+		<h:dataTable value="#{companiesManager.companies()}" var="company" border="2"
+			cellspacing="1" cellpadding="1">
+			<h:column>
+				<c:facet name="header">Name</c:facet>
+                    #{company.companyName}
+                </h:column>
+			<h:column>
+				<c:facet name="header">Registration Number</c:facet>
+                    #{company.companyRegistrationNumber}
+                </h:column>
+			<h:column>
+				<c:facet name="header">Logo URL</c:facet>
+                    #{company.companyLogoUrl}
+                </h:column>
+			<h:column>
+				<c:facet name="header">Organization Type</c:facet>
+                    #{company.orgType}
+                </h:column>
+			<h:column>
+				<c:facet name="header">Update Company</c:facet>
+                    <h:commandLink value="Update" action="#{companiesManager.deleteAction(o)}" />
+                </h:column>
+			<h:column>
+				<c:facet name="header">Delete Company</c:facet>
+                    #{company.orgType}
+                </h:column>
+
+		</h:dataTable>
+	</h:form>
+		
+		
+		
+	<h:form id="master" enctype="multipart/form-data" class="form-style-9">
+		 <ul>
+			<li>
+			    <input type="text" name="field1" class="field-style field-split align-left" placeholder="Name" />
+			    <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" />
+			
+			</li>
+			<li>
+			    <input type="text" name="field3" class="field-style field-split align-left" placeholder="Phone" />
+			    <input type="url" name="field4" class="field-style field-split align-right" placeholder="Website" />
+			</li>
+			<li>
+			<input type="text" name="field3" class="field-style field-full align-none" placeholder="Subject" />
+			</li>
+			<li>
+			<textarea name="field5" class="field-style" placeholder="Message"></textarea>
+			</li>
+			<li>
+			<input type="submit" value="Send Message" />
+			</li>
+			</ul>
+     
+	</h:form>
+
+</h:body>
+</html>

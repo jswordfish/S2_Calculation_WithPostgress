@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+xmlns:h="http://xmlns.jcp.org/jsf/html"  
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>  
+<title>Company Details</title>  
+<!-- <h:outputStylesheet name="css/bootstrap.min.css"/>   -->
+
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="css/twenty20.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	crossorigin="anonymous"></script>
+	
+<h:outputScript>
+    $(document).ready(function(){ 
+       
+      var bean = { display: "#{projectsManager.source}" };
+      var b = "#{projectsManager.source}";
+	$('#first_tab').trigger('click');
+     
+	
+   });
+</h:outputScript>
+<style type="text/css">  
+.tab-content{
+   padding:20px;
+}
+</style> 
+
+</h:head>  
+<body>
+
+ 
+	
+<ul class="nav nav-tabs" style="text-align: left;">
+<li class="rounded"><a href="#zero" data-toggle="tab" id="zero_tab">Settings</a></li>
+    <li class="rounded"><a href="#first" data-toggle="tab" id="first_tab">Rules Manager</a></li>
+   
+    <li class="rounded active"><a href="#second" data-toggle="tab" id="second_tab" >Lucene</a></li>
+   
+</ul>
+
+<div class="tab-content">
+
+<div id="zero" class="tab-pane fade in">
+	<span class="underConstruction"> Under Construction</span>
+
+       
+    </div>
+
+    <div id="first" class="tab-pane fade in">
+	
+		<h:form>
+			<ui:include src="/rules.xhtml">
+					
+				      </ui:include>
+			
+			
+		</h:form>
+       
+    </div>
+      
+    <div id="second" class="tab-pane fade in active">
+	
+		<span class="underConstruction"> Under Construction</span>
+    </div>
+
+    
+</div>
+
+
+ 
+
+    
+	
+</body>
+</html>  

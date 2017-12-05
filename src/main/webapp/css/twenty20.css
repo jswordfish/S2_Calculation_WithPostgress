@@ -1,0 +1,132 @@
+.dt-table{
+	border-collapse:collapse;
+}
+
+.dt-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+	text-align:left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.dt-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:1px solid #BBBBBB;
+	text-align:left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.dt-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+	text-align:left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.ruleDialogText {
+    display: block;
+    width: 750px; /* Optional, depends otherwise on parent. */
+    height: 500px;
+    overflow: auto;
+    color: green;
+     font-family: Verdana, Arial, Helvetica, sans-serif;
+     margin-left: auto;
+    margin-right: auto;
+}
+
+.fontClass	{
+	text-align:left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	}
+
+.underConstruction{
+	text-align:left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	}
+	
+.bitBold{
+	text-align:left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	}
+	
+.testFormulaField{
+	text-align:left;
+	font-family: "Times New Roman", Georgia, Serif";
+	color:Red;
+	font-size: 18px;
+	font-weight: bold;
+	}
+	
+	
+.nav-tabs > li.active > a {
+	  
+	  font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-color:cadetblue;
+	}
+.nav-tabs > li > a {
+	  font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	
+	}
+	
+
+	
+.headerStyle	{
+	text-align:left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	margin-top: 0;
+	margin-bottom: 0;
+	}
+	
+.general{
+	text-align:left;
+	display:block;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin-left: 20px;
+	font-weight: normal;
+	}
+	
+
+	
+.form-control{
+	text-align:left;
+	display:block;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-weight: normal;
+	size:40;
+	}
+	
+.nav-tabs > li.rounded > a:active,
+.nav-tabs > li.rounded > a:hover,
+.nav-tabs > li.rounded > a:focus  {
+    background-color:cadetblue;
+    font-weight:bolder;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}	
+
+

@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    
+    <link type="text/css" rel="stylesheet" href="css/twenty20.css" />
+    <title>"#{projectsManager.title}"</title>
+    <style type="text/css">
+        .col-xs-updated {        
+            width: 92% !important;
+        }
+	
+	
+	.choices label {
+	align:right;
+	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin-left: 40px;
+	font-weight: normal;
+	padding-right: 2px;
+	}
+	
+	.choices td {
+	    text-align: right;
+	}
+	.choices td input {
+	    float: right;
+	}
+	
+    </style>
+</h:head>
+
+
+
+<h:body>  
+ 
+ <div class="container">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-brand" style="bitBold">
+		
+		<h:outputText id="displayTitle" value="#{projectsManager.title}" />
+	    
+	    </div>
+        </div>
+	<b><hr/> </b>
+       
+		<h:form id="projectForm" class="form-horizontal"  >  
+
+			<fieldset>
+    
+    <div class='row'>
+        <div class='col-sm-5'>    
+            <div class='form-group'>
+                <h:outputLabel for="projectName-id"  styleClass="general" >Project Name</h:outputLabel>  
+                <h:inputText id="projectName-id" value="#{projectsManager.project.projectName}" class="form-control" styleClass="form-control"  pt:required="required"
+					validatorMessage="Project name is required">  
+					<f:validateRequired />  
+					</h:inputText>
+            </div>
+        </div>
+	<div class='col-sm-5'>    
+            <div class='form-group'>
+                <h:outputLabel for="pValue" styleClass="general" >Approximate Project Value (INR)</h:outputLabel>  
+				
+		<input type="text" id="pValue" a:value="#{projectsManager.project.projectValue}" styleClass="form-control" />
+				
+            </div>
+        </div>
+     </div>
+     <div class='row'>
+     
+        <div class='col-sm-5'>
+            <div class='form-group'>
+                <h:outputLabel for="buyer-id"  styleClass="general" >Buyer</h:outputLabel>  
+                <h:inputText id="buyer-id" value="#{projectsManager.user.userName}" disabled="true" class="form-control" styleClass="form-control" >  
+					
+					</h:inputText> 
+            </div>
+        </div>
+        <div class='col-sm-5'>
+            <div class='form-group'>
+                <h:outputLabel for="buyerCompany-id"  styleClass="general" >Company</h:outputLabel>  
+                <h:inputText id="buyerCompany-id" value="#{projectsManager.user.company.companyName}" disabled="true" class="form-control" styleClass="form-control" >  
+					
+		</h:inputText>  
+            </div>
+        </div>
+	
+    </div>
+    
+    <div class='row'>
+        <div class='col-sm-5'>
+            <div class='form-group'>
+                <h:outputLabel for="date"  styleClass="general" >Project Commence Date</h:outputLabel>  
+				
+		<input type="date" id="date" a:value="#{projectsManager.projectDate}"  class="general" />
+				
+            </div>
+        </div>
+	<div class='col-sm-5'>
+            <div class='form-group'>
+                <h:outputLabel for="duration-id"  styleClass="general" >Approximate Project Duration</h:outputLabel>  
+				  
+		<h:inputText id="duration-id" value="#{projectsManager.project.approximateProjectDuration}" pt:type="number" p:title="Enter a number" pt:required="required" class="general" >  
+		
+		</h:inputText>
+				
+            </div>
+        </div>
+	
+    </div>
+    
+    <div class='row'>
+        <div class='col-sm-10'>    
+            <div class='form-group'>
+                <h:outputLabel for="pType"  styleClass="general">Select Project Type </h:outputLabel>
+				
+		<h:selectOneRadio id="pType" value="#{projectsManager.project.type}" styleClass="choices" update="projectSubTypes">  
+							<f:selectItem itemValue="RESIDENTIAL" itemLabel="RESIDENTIAL" />  
+							<f:selectItem itemValue="COMMERCIAL" itemLabel="COMMERCIAL" />
+							<f:selectItem itemValue="INFRASTRUCTURE" itemLabel="INFRASTRUCTURE"  /> 
+							
+							<f:ajax listener="#{projectsManager.changeSubTypes}"/> 
+						  
+						
+						</h:selectOneRadio>
+				
+            </div>
+        </div>
+      </div>
+        
+	<div class='row'>
+		<div class='col-sm-10'>   
+		   <div class='form-group'>
+			<h:outputLabel for="projectSubTypes"  styleClass="general">Select Project Sub Type </h:outputLabel>  
+					<h:selectOneRadio id="projectSubTypes" value="#{projectsManager.project.projectSubTye}" validatorMessage="Project Sub Type is required" pt:required="required" styleClass="choices">  
+							 <f:selectItems value="#{projectsManager.projectSubType.subTypes}" var="entry"
+        itemValue="#{entry}" itemLabel="#{entry}"  />
+						 
+						
+						</h:selectOneRadio>
+				
+		</div>
+	      </div>
+	</div>
+	
+	
+	
+    
+    
+			<b>Address </b>
+	<div class='row'>
+		<div class='col-sm-5'>    
+		    <div class='form-group'>
+			<h:outputLabel for="line1-id" class="control-label col-sm-10" styleClass="general" >Line 1</h:outputLabel>
+			<h:inputText id="line1-id" value="#{projectsManager.project.address.line1}" class="form-control"   pt:required="required"
+						validatorMessage="Line 1 is required">  
+						<f:validateRequired />  
+						</h:inputText>  
+		    </div>
+		</div>
+		<div class='col-sm-5'>    
+		    <div class='form-group'>
+			<h:outputLabel for="line2-id" class="control-label col-sm-10" styleClass="general" >Line 2</h:outputLabel>
+					
+			<h:inputText id="line2-id" value="#{projectsManager.project.address.line2}" class="form-control">  
+						
+						</h:inputText>
+					
+		    </div>
+		</div>
+        </div>
+	
+	<div class='row'>
+		<div class='col-sm-5'>    
+		    <div class='form-group'>
+			<h:outputLabel for="line3-id" class="control-label col-sm-10" styleClass="general" >Line 3</h:outputLabel>  
+			<h:inputText id="line3-id" value="#{projectsManager.project.address.line3}" class="form-control">  
+					
+					</h:inputText>  
+		    </div>
+		</div>
+		<div class='col-sm-5'>    
+		    <div class='form-group'>
+			<h:outputLabel for="line4-id" class="control-label col-sm-10" styleClass="general" >Line 4</h:outputLabel>  
+					
+			<h:inputText id="line4-id" value="#{projectsManager.project.address.line4}" class="form-control">  
+					
+					</h:inputText>
+					
+		    </div>
+		</div>
+        </div>
+	
+	<div class='row'>
+		<div class='col-sm-5'>    
+		    <div class='form-group'>
+			<h:outputLabel for="town-id" class="control-label col-sm-10" styleClass="general" >Town or City</h:outputLabel>  
+			<h:inputText id="town-id" value="#{projectsManager.project.address.town}" class="form-control"   pt:required="required"
+					validatorMessage="Town or city is required">  
+					<f:validateRequired />  
+					</h:inputText>  
+		    </div>
+		</div>
+		<div class='col-sm-5'>    
+		    <div class='form-group'>
+			<h:outputLabel for="zip-id" class="control-label col-sm-10" styleClass="general" >Zip</h:outputLabel>
+					
+			<h:inputText id="zip-id" value="#{projectsManager.project.address.zip}" class="form-control"   pt:required="required"
+					validatorMessage="Zip is required">  
+					<f:validateRequired />  
+					</h:inputText> 
+					
+		    </div>
+		</div>
+        </div>
+	
+	<div class='row'>
+		<div class='col-sm-5'>    
+		    <div class='form-group'>
+			<h:outputLabel for="state-id" class="control-label col-sm-10" styleClass="general" >State</h:outputLabel>
+			<h:inputText id="state-id" value="#{projectsManager.project.address.state}" class="form-control"   pt:required="required"
+					validatorMessage="State is required">  
+					<f:validateRequired />  
+					</h:inputText>    
+		    </div>
+		</div>
+		
+        </div>
+	
+	<div class='row'>
+		<div class='col-sm-5'>    
+		 	<h:commandButton id="saveProj" value="Save" action="#{projectsManager.saveProject()}" class="btn btn-success col-sm-7" style="width:100px;height:30px;font-size:12px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;"></h:commandButton>  
+					
+		</div>
+		<div class='col-sm-5'>    
+		    	<h:button value="Go Back"  outcome="bootstrapTabs"  style="width:100px;float:right;height:30px;font-size:12px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;"></h:button>  
+					
+		</div>
+        </div>
+    
+</fieldset>
+
+			
+		</h:form>	
+	     
+	<b><hr/> </b>
+</div>	
+  
+</h:body>  
+</html>  
