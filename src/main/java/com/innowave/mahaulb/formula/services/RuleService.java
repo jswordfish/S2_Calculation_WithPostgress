@@ -16,6 +16,8 @@ public interface RuleService extends BaseService {
 	
 	public Rule getUniqueRule(String ruleName) throws S2GenericException;
 	
+
+	
 	public Rule getUniqueRuleByFields(Set<Field> criteria) throws S2GenericException;
 	
 	public RuleOutput execute(Formula formula) throws S2GenericException;

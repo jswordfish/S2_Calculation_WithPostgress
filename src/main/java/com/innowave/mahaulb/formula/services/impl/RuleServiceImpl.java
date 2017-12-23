@@ -205,6 +205,8 @@ public class RuleServiceImpl extends BaseServiceImpl<Long, Rule> implements Rule
 			flds2.size();
 			return rule;
 	}
+
+	
     
    
 	

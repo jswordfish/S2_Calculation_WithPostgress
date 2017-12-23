@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+xmlns:h="http://xmlns.jcp.org/jsf/html"  
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+xmlns:rich="http://richfaces.org/rich"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>  
+<title>All Rules</title>  
+<h:outputStylesheet name="css/bootstrap.min.css"/>  
+
+
+<link type="text/css" rel="stylesheet" href="css/twenty20.css" />
+
+
+
+<style type="text/css">  
+table {  
+border-collapse: collapse;  
+width: 100%;  
+}  
+th, td {  
+text-align: left;  
+padding: 8px;  
+}  
+  
+tr:nth-child(even){background-color: #f2f2f2}  
+th {  
+background-color: #4CAF50;  
+color: white;  
+}  
+
+.rf-tab-lbl{
+	 font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	}
+	
+.rf-tab-hdr.rf-tab-hdr-act
+{
+  background-image : none;
+  background-color: lightblue;
+}
+</style>  
+</h:head>  
+<h:body>  
+ 
+
+
+<center>  
+
+
+	<b><hr/> </b>
+	 
+
+ 
+</center>  
+<h:form>
+<table class="table" border="1">
+				  
+<tbody>
+	<tr>
+		<td>
+			<h:outputText value="Rule Name - #{rulesManager.rule.ruleName}" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputText value="Rule Criteria Fields" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	<tr>
+		
+		<td>
+		<h:dataTable  value="#{rulesManager.rule.criteria}" var="criteriaField"   
+		class="table table-striped table-hover table-bordered" styleClass="fontClass">  
+		<h:column>  
+		<f:facet name="header">Criteria Field Name</f:facet>  
+		<h:outputText value="#{criteriaField.name}" styleClass="fontClass"/>  
+		</h:column>  
+		
+		<h:column>  
+		<f:facet name="header">Criteria Field Value</f:facet>  
+		<h:outputText value="#{criteriaField.value}" styleClass="fontClass"/>  
+		</h:column>
+		
+		</h:dataTable>  
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputText value="Rule Formula Value Fields" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	<tr>
+		
+		<td>
+		<h:dataTable  value="#{rulesManager.rule.formula.fields}" var="criteriaField"   
+		class="table table-striped table-hover table-bordered" styleClass="fontClass">  
+		<h:column>  
+		<f:facet name="header">Formula Field Name</f:facet>  
+		<h:outputText value="#{criteriaField.name}" styleClass="fontClass"/>  
+		</h:column>  
+		
+		
+		
+		</h:dataTable>  
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputText value="Formula Expression - #{rulesManager.rule.formula.formulaContents}" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputText value="WebService to get Rule Input Information Programmitically- See below" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputLink value="http://103.249.96.234:8888/ws/rest/rulesService/ruleInput/ruleName/Calculate%20CV%20for%20RESIDENTIAL,%20SHOP,%20COMMERCIAL%20and%20INDUSTRIAL%20Premises/tenantId/Tenant1/token/test" target="_blank" styleClass="fontClass"> 
+				Check out - Right click to see the web service
+				</h:outputLink>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputText value="Webservice to save Rule Programmitically from an Existing Program" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<h:outputText value="POST http://103.249.96.234:8888/ws/rest/rulesService/saveRule/token/{token} - Pass Rule json as input" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputText value="Example Rule Json String See below" styleClass="fontClass"/>  
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputLink value="http://103.249.96.234:8888/ws/rest/rulesService/exampleRuleJson/ruleName/Calculate%20CV%20for%20RESIDENTIAL,%20SHOP,%20COMMERCIAL%20and%20INDUSTRIAL%20Premises/tenantId/Tenant1/token/test" target="_blank" styleClass="fontClass"> 
+				Download Example Json
+				</h:outputLink>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<h:button value="Go Back"  outcome="RulesAdminPanel"  style="width:100px;float:right;height:30px;font-size:12px;font-family: Verdana, Arial, Helvetica, sans-serif;font-weight:bold;"></h:button>  
+		</td>
+	</tr>
+	
+</tbody>	
+</table>	
+
+
+  
+
+</h:form>
+	
+</h:body>  
+</html>  

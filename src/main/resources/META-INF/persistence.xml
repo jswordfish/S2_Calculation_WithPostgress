@@ -20,7 +20,7 @@ Persistence unit for the JPA tutorial of the Hibernate Getting Started Guide
 	<property name="hibernate.search.default.directory_provider"
           value="filesystem"/>
     <property name="hibernate.search.default.indexBase"
-          value="D:\luceneData_new_pg"/>
+          value="/root/LuceneData"/>
 <!-- 	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" /> -->
 	<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect" />
 	<property name="hibernate.show_sql" value="true" />

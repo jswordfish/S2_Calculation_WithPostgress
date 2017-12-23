@@ -30,13 +30,15 @@
 	
 	<bean id="dataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="org.postgresql.Driver" />
-<!--         <property name="jdbcUrl" value="jdbc:mysql://mariadb:3306/hirebuddydb" /> -->
-<!-- 		 <property name="user" value="hirebuddy" /> -->
-<!--         <property name="password" value="Welcome@1" />  -->
 
-		<property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/FormulaEngine" />  
-		<property name="user" value="postgres" /> 
-		<property name="password" value="admin" />
+
+<!-- 		<property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/FormulaEngine" />   -->
+<!-- 		<property name="user" value="postgres" />  -->
+<!-- 		<property name="password" value="admin" /> -->
+
+		<property name="jdbcUrl" value="jdbc:postgresql://127.0.0.1:5434/report" />  
+		<property name="user" value="report" /> 
+		<property name="password" value="report#2017" />
 
         <property name="initialPoolSize" value="3" />
 		<property name="minPoolSize" value="6" />

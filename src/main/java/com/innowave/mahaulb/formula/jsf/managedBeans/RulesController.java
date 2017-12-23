@@ -65,7 +65,7 @@ public class RulesController {
 	
 	Rule testRule;
 	
-	String webServiceUrl = "http://localhost:8080/ws/rest/rulesService/identifyAndExecuteForTenant/tenant/{tenant}/token/test";
+	String webServiceUrl = "http://103.249.96.234:8888/ws/rest/rulesService/identifyAndExecuteForTenant/tenant/{tenant}/token/test";
 	
 	String httpMethod = "POST";
 	
@@ -136,6 +136,11 @@ public class RulesController {
 		this.ruleNameEdit = true;
 		setRuleXmlWithDefaultValues();
 		return "rule.xhtml?faces-redirect=false";
+	}
+	
+	public String otherDetails(Rule rule) {
+		setRule(rule);
+		return "otherDetails.xhtml?faces-redirect=false";
 	}
 	
 	void setRuleXmlWithDefaultValues(){

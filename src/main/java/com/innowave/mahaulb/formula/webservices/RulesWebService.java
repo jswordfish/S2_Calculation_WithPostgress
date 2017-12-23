@@ -1,6 +1,7 @@
 package com.innowave.mahaulb.formula.webservices;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -55,6 +56,51 @@ public class RulesWebService {
 			Formula formula = populateFormulaWithValues(rule.getFormula(), ruleInput.getValueFields());
 			RuleOutput ruleOutput = ruleService.execute(formula);
 			return Response.ok().entity(ruleOutput).build();
+		} catch (S2GenericException e) {
+			// TODO Auto-generated catch block
+			return Response.status(javax.ws.rs.core.Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
+	@Path("/ruleInput/ruleName/{ruleName}/tenantId/{tenantId}/token/{token}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public javax.ws.rs.core.Response getRuleInput(@PathParam("ruleName") String ruleName, @PathParam("tenantId") String tenantId, @PathParam("token") String token){
+		ruleService =  SpringUtil.getService(RuleService.class);
+		Rule rule = ruleService.getUniqueRuleByTenant(ruleName, tenantId);
+		RuleInput ruleInput = new RuleInput();
+		Set<Field> flds = new HashSet<>();
+		flds.addAll(rule.getCriteria());
+		ruleInput.setCriteriaFields(flds);
+		
+		Set<Field> valueFlds = new HashSet<>();
+		valueFlds.addAll(rule.getFormula().getFields());
+		ruleInput.setValueFields(valueFlds);
+		return Response.ok().entity(ruleInput).build();
+	}
+	
+	@GET
+	@Path("/exampleRuleJson/ruleName/{ruleName}/tenantId/{tenantId}/token/{token}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public javax.ws.rs.core.Response exampleRuleJson(@PathParam("ruleName") String ruleName, @PathParam("tenantId") String tenantId, @PathParam("token") String token){
+		ruleService =  SpringUtil.getService(RuleService.class);
+		Rule rule = ruleService.getUniqueRuleByTenant(ruleName, tenantId);
+		
+		return Response.ok().entity(rule).build();
+	}
+	
+	@POST
+	@Path("/saveRule/token/{token}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public javax.ws.rs.core.Response saveOrUpdate(Rule rule, @PathParam("token") String token){
+		try {
+			//Set<Field> criteria = Util.replaceSpaceIfAroundInCriteriaFieldValues(ruleInput.getCriteriaFields());
+			ruleService =  SpringUtil.getService(RuleService.class);
+			ruleService.saveOrUpdate(rule);
+			return Response.ok().entity("Success").build();
 		} catch (S2GenericException e) {
 			// TODO Auto-generated catch block
 			return Response.status(javax.ws.rs.core.Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
